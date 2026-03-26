@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stuart Buchan, PhD — Software Systems Engineer</title>
-  <meta name="description" content="CV of Stuart Buchan, PhD — Software Systems Engineer specialising in spacecraft flight software, embedded systems, and autonomous space missions.">
+  <meta name="description" content="Stuart Buchan, PhD — Software Systems Engineer specialising in spacecraft flight software, embedded systems, and autonomous space missions. Co-founder of the Binar Space Program.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -48,7 +48,7 @@
 
     /* ── Layout ── */
     .page {
-      max-width: 800px;
+      max-width: 820px;
       margin: 0 auto;
       padding: 80px 32px 100px;
     }
@@ -86,7 +86,6 @@
       background: var(--rule);
       border-radius: 50%;
       vertical-align: middle;
-      margin-right: 0;
     }
 
     .contact-row span:first-child::before { display: none; }
@@ -96,8 +95,11 @@
       font-size: 1.05rem;
       line-height: 1.72;
       color: #333;
-      max-width: 680px;
+      max-width: 720px;
     }
+
+    .summary p { margin-bottom: 12px; }
+    .summary p:last-child { margin-bottom: 0; }
 
     /* ── Section ── */
     section {
@@ -105,10 +107,13 @@
       animation: fadeUp 0.6s ease both;
     }
 
-    section:nth-child(2) { animation-delay: 0.08s; }
-    section:nth-child(3) { animation-delay: 0.16s; }
-    section:nth-child(4) { animation-delay: 0.24s; }
-    section:nth-child(5) { animation-delay: 0.32s; }
+    section:nth-of-type(1) { animation-delay: 0.08s; }
+    section:nth-of-type(2) { animation-delay: 0.16s; }
+    section:nth-of-type(3) { animation-delay: 0.24s; }
+    section:nth-of-type(4) { animation-delay: 0.32s; }
+    section:nth-of-type(5) { animation-delay: 0.36s; }
+    section:nth-of-type(6) { animation-delay: 0.40s; }
+    section:nth-of-type(7) { animation-delay: 0.44s; }
 
     .section-title {
       font-family: var(--serif);
@@ -151,8 +156,17 @@
     .entry-sub {
       font-size: 0.92rem;
       color: var(--muted);
-      margin-bottom: 12px;
+      margin-bottom: 6px;
       font-style: italic;
+    }
+
+    .entry-context {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 14px;
+      padding-left: 18px;
+      border-left: 2px solid var(--rule);
     }
 
     .entry ul {
@@ -179,6 +193,10 @@
       background: var(--accent);
     }
 
+    .entry li strong {
+      font-weight: 600;
+    }
+
     /* ── Thesis block ── */
     .thesis-title {
       font-size: 0.94rem;
@@ -186,8 +204,56 @@
       color: #333;
     }
 
-    .thesis-title em {
-      font-style: italic;
+    .thesis-title em { font-style: italic; }
+
+    /* ── Publications ── */
+    .pub-list {
+      list-style: none;
+      padding: 0;
+      counter-reset: pub;
+    }
+
+    .pub-list li {
+      position: relative;
+      padding-left: 32px;
+      margin-bottom: 14px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: #333;
+      counter-increment: pub;
+    }
+
+    .pub-list li::before {
+      content: counter(pub) '.';
+      position: absolute;
+      left: 0;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    .pub-list .pub-authors { color: var(--muted); }
+    .pub-list .pub-title { font-weight: 500; }
+    .pub-list .pub-venue { font-style: italic; }
+
+    /* ── Media ── */
+    .media-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .media-list li {
+      margin-bottom: 10px;
+      font-size: 0.92rem;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .media-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
     }
 
     /* ── Skills / Tags ── */
@@ -217,7 +283,7 @@
       font-size: 0.82rem;
       color: var(--muted);
       animation: fadeUp 0.6s ease both;
-      animation-delay: 0.4s;
+      animation-delay: 0.5s;
     }
 
     /* ── Animations ── */
@@ -233,6 +299,7 @@
       section, header, footer { animation: none; }
       a { color: var(--ink); border: none; }
       .tag { border: 1px solid #ccc; background: transparent; color: var(--ink); }
+      .entry-context { border-left-color: #999; }
     }
 
     /* ── Responsive ── */
@@ -249,11 +316,16 @@
     <header>
       <h1>Stuart Buchan, PhD</h1>
       <div class="contact-row">
-        <span><a href="https://linkedin.com/in/stuartrgbuchan" target="_blank" rel="noopener">LinkedIn</a></span>
+        <span><a href="https://au.linkedin.com/in/stuartrgbuchan" target="_blank" rel="noopener">LinkedIn</a></span>
       </div>
-      <p class="summary">
-        A dedicated and innovative PhD graduate currently working as a software systems engineer with a strong background in spacecraft software development and a commitment to enhancing the reliability and autonomy of space missions. I have led the development of a spacecraft flight software framework, deployed on four satellites, and designed advanced onboard systems for predictive fault prevention. My strong proficiency in C/C++, deep understanding of mechatronic systems, proven leadership skills, adaptability, and creative problem-solving abilities position me to drive success in challenging projects.
-      </p>
+      <div class="summary">
+        <p>
+          Co-founder of Curtin University's Binar Space Program and a recognised ambassador for Australia's fast-growing space sector. I led the flight software design, development, and testing for Western Australia's first spacecraft, and my PhD research applied cutting-edge AI to boost spacecraft autonomy and resilience — work I'm extending today at Fugro SpAARC, where I provide southern-hemisphere mission support to U.S. lunar flights and co-develop next-generation on-orbit compute architectures with international partners.
+        </p>
+        <p>
+          I'm personally driven to deepen U.S.–Australian cooperation, ensuring allied access to resilient space infrastructure while democratising opportunities for new entrants. I mentor emerging engineers, champion open collaboration, and consistently turn visionary ideas into tangible, flight-proven hardware.
+        </p>
+      </div>
     </header>
 
     <!-- ════ EXPERIENCE ════ -->
@@ -266,12 +338,13 @@
           <span class="entry-date">Feb 2024 — Present</span>
         </div>
         <div class="entry-sub">Fugro SpAARC · Perth, WA</div>
+        <p class="entry-context">Australia's NASA-aligned Remote Operations Complex, providing the United States with continuous southern-hemisphere mission control, flight-software R&D, and space-traffic-management services in support of NASA, Intuitive Machines, and the Australian Space Agency.</p>
         <ul>
-          <li>Contributing to avionics hardware selection for Trailblazer Stage 1 of the Australian Space Agency Moon to Mars Initiative by deploying soft-core emulation of potential flight computers on FPGAs.</li>
-          <li>Developing and maintaining a custom embedded Linux image for deployment on the flight computer, with an additional virtualised setup for hardware-independent testing.</li>
-          <li>Set up and manage a lab testing network for seamless distribution of embedded Linux images to FPGA targets, facilitating efficient deployment processes.</li>
-          <li>Develop, cross-compile, and deploy cFS (core Flight System) applications onto hardware targets, supporting hardware evaluation for the Preliminary Design Review phase.</li>
-          <li>Build and maintain toolchains and development tools, supporting and optimising the embedded systems development workflow.</li>
+          <li><strong>Made lunar-flight history:</strong> On console as the SpAARC mission operations team transmitted Australia's first in-flight command to Intuitive Machines' Nova-C (IM-2) lander during cislunar transit, paving the way for 24-hour U.S.–Australia mission coverage during the historic second-ever commercial lunar landing.</li>
+          <li><strong>Shielding U.S. assets:</strong> Co-designed a cloud-based collision-avoidance service with NASA that fuses Starling &amp; Starlink ephemeris, auto-flagging conjunctions &lt;&nbsp;10&nbsp;m and establishing an operational template for bilateral space-traffic management aligned with NASA's Commercial LEO Destinations program.</li>
+          <li><strong>Democratising space flight software:</strong> Led development of a web-based core Flight System (cFS) table-builder that eliminates manual hex editing and cuts configuration time 5×. Now in testing with former NASA flight software leads, it enables non-programmers to safely build and deploy spacecraft configurations.</li>
+          <li><strong>Opening cutting-edge hardware paths:</strong> Ported NASA's cFS to RISC-V SoCs, unlocking low-cost, export-compliant processors for allied missions.</li>
+          <li><strong>De-risked Australia's flagship lunar rover mission:</strong> Emulated candidate flight computers on FPGAs months ahead of delivery to validate compatibility with NASA payloads. Developed a CI-ready embedded Linux image with virtualisation (QEMU), enabling on-schedule Preliminary Design Review and supporting remote development.</li>
         </ul>
       </div>
 
@@ -280,12 +353,14 @@
           <span class="entry-title">Lead Embedded Software Engineer</span>
           <span class="entry-date">Mar 2019 — Feb 2024</span>
         </div>
-        <div class="entry-sub">Binar Space Program · Perth, WA</div>
+        <div class="entry-sub">Binar Space Program, Curtin University · Perth, WA</div>
+        <p class="entry-context">An initiative of Curtin University's Space Science and Technology Centre developing compact, cost-effective CubeSats to advance Australia's space capabilities through missions in Low Earth Orbit.</p>
         <ul>
-          <li>Spearheaded the development of spacecraft flight software for Binar-1, contributing to the mission's success.</li>
-          <li>Designed and implemented drivers, board support layers, hardware abstraction layers, and libraries using C/C++, optimising flight software development.</li>
-          <li>Established and maintained a robust CI/CD pipeline, ensuring the release of high-quality code to spacecraft and enhancing mission reliability.</li>
-          <li>Led a dynamic development team responsible for writing spacecraft flight software for Binar-2, 3, and 4, ensuring the achievement of mission objectives on orbit.</li>
+          <li><strong>Made Western Australian space history:</strong> Led end-to-end flight software development for Western Australia's first satellite, Binar-1 — meeting mission objectives, verifying software capability on orbit, and establishing a reliable platform for future payload integrations with national partners.</li>
+          <li><strong>Grew Australia's spaceflight talent pipeline:</strong> Mentored and led a team of engineers and university students responsible for developing spaceflight software for the Binar-2, 3, and 4 CubeSats, consistently achieving mission objectives and expanding Australia's sovereign space capability.</li>
+          <li><strong>Engineered flight-ready reliability from scratch:</strong> Architected a comprehensive software stack — drivers, board support layers, and hardware abstraction layers in C/C++ — streamlining flight software development and enhancing system performance.</li>
+          <li><strong>Ported proven practices to the space industry:</strong> Established a robust CI/CD pipeline incorporating automated testing and rigorous code reviews, ensuring the delivery of high-quality, mission-critical software to orbit.</li>
+          <li><strong>Shared Australia's CubeSat leap with the world:</strong> Delivered the talk <em>"Binar Space Program: Mission Two Payloads and Operations Plan"</em> at the 2023 AIAA/USU Small Satellite Conference in the U.S., with the accompanying paper downloaded more than 160 times worldwide.</li>
         </ul>
       </div>
 
@@ -295,10 +370,11 @@
           <span class="entry-date">Mar 2018 — Jun 2020</span>
         </div>
         <div class="entry-sub">Curtin University · Perth, WA</div>
+        <p class="entry-context">Laboratory supervisor for Mechatronics Microcontroller Project (semi-autonomous robot design) and Mechatronics Modelling Project (model-based design for autonomous systems).</p>
         <ul>
-          <li>Guided second-year engineering students in translating theoretical knowledge into practical applications across Microcontroller Project and Modelling Project units.</li>
-          <li>Organised and facilitated interactive workshops, ensuring students acquired practical skills directly applicable to their coursework.</li>
-          <li>Demonstrated exceptional adaptability during the COVID-19 pandemic by developing an alternative codebase for students to use at home on personal laptops.</li>
+          <li><strong>Bridged theory and practice:</strong> Mentored second-year engineering students in applying theoretical concepts to real-world challenges, fostering deeper understanding and cultivating problem-solving skills.</li>
+          <li><strong>Turned coursework into capability:</strong> Designed and facilitated hands-on workshops equipping students with practical skills directly applicable to their careers.</li>
+          <li><strong>Kept learning alive in lockdown:</strong> Rapidly developed an alternative codebase during COVID-19 that enabled students to continue studies remotely on personal laptops when standard lab software was inaccessible.</li>
         </ul>
       </div>
 
@@ -307,10 +383,11 @@
           <span class="entry-title">Research Engineer</span>
           <span class="entry-date">Jul 2018 — Feb 2019</span>
         </div>
-        <div class="entry-sub">Desert Fireball Network · Perth, WA</div>
+        <div class="entry-sub">Desert Fireball Network, Curtin University · Perth, WA</div>
+        <p class="entry-context">Part of the Global Fireball Observatory — a collaborative effort with NASA, University of Arizona, Lunar and Planetary Institute, and Lowell Observatory to study meteorite falls worldwide.</p>
         <ul>
-          <li>Played a key role in the assembly and deployment of fireball observation cameras as part of the Global Fireball Observatory.</li>
-          <li>Collaborated with a multidisciplinary team to ensure successful setup and calibration of observation equipment for tracking fireball events.</li>
+          <li><strong>Expanded a global meteor network:</strong> Constructed, deployed, and maintained automated fireball observation cameras supporting the GFO's planetary science data collection efforts.</li>
+          <li><strong>Delivered the hardware behind the science:</strong> Coordinated precision setup, calibration, and operation of complex observation equipment, resulting in a significant increase in observation time and improved datasets worldwide.</li>
         </ul>
       </div>
 
@@ -319,10 +396,11 @@
           <span class="entry-title">Software Engineering Intern</span>
           <span class="entry-date">Dec 2017 — Feb 2018</span>
         </div>
-        <div class="entry-sub">CSIRO Astronomy and Space Science Division · Perth, WA</div>
+        <div class="entry-sub">CSIRO Astronomy and Space Science · Perth, WA</div>
+        <p class="entry-context">CSIRO's division responsible for developing and operating world-class radio astronomy facilities, including contributions to the international Square Kilometre Array project.</p>
         <ul>
-          <li>Collaborated with a senior software engineer to develop a navigation and visualisation platform for monitoring measurement points of the Australian Square Kilometre Array Pathfinder telescopes.</li>
-          <li>Designed and implemented custom anomaly detection algorithms in Python to autonomously identify errors in radio telescope data.</li>
+          <li>Co-developed a navigation and visualisation platform for monitoring measurement points of the Australian Square Kilometre Array Pathfinder telescopes — supporting operational needs and active development through at least 2021.</li>
+          <li>Designed and implemented custom anomaly detection algorithms in Python, enhancing the efficiency and accuracy of radio telescope data analysis.</li>
         </ul>
       </div>
     </section>
@@ -344,6 +422,7 @@
           <li>Applied reliable software design principles to satellite software development, demonstrated through a case study on Western Australia's first satellite, Binar-1.</li>
           <li>Developed an onboard digital twin for the Binar CubeSat platform running on a memory-constrained flight computer, demonstrating fault prediction and autonomous fault prevention.</li>
           <li>Successfully integrated the software framework onto Binar-2, 3, and 4 along with the novel onboard digital twin for in-orbit testing.</li>
+          <li>Findings support NASA Standard 8719.14 debris-mitigation criteria and the FCC's 2022 "5-year rule" for LEO satellite disposal by improving CubeSat on-orbit success rates.</li>
         </ul>
       </div>
 
@@ -360,6 +439,48 @@
       </div>
     </section>
 
+    <!-- ════ PUBLICATIONS ════ -->
+    <section>
+      <h2 class="section-title">Publications</h2>
+      <ol class="pub-list">
+        <li>
+          <span class="pub-authors">SRG Buchan.</span>
+          <span class="pub-title">Pushing the Boundaries of Spacecraft Autonomy and Resilience with a Custom Software Framework and Onboard Digital Twin.</span>
+          <span class="pub-venue">Curtin University, Australia, 2023.</span>
+        </li>
+        <li>
+          <span class="pub-authors">S Buchan, F Downey, B Hartig, D Busan, J Cook, R Howie, P Bland, J Paxman.</span>
+          <span class="pub-title">Binar Space Program: Mission Two Payloads and Operations Plan.</span>
+          <span class="pub-venue">Small Satellite Conference, USA, 2022.</span>
+        </li>
+        <li>
+          <span class="pub-authors">F Downey, S Buchan, B Hartig, D Busan, J Cook, R Howie, P Bland, J Paxman.</span>
+          <span class="pub-title">Binar Space Program: Binar-1 Results and Lessons Learned.</span>
+          <span class="pub-venue">Small Satellite Conference, USA, 2022.</span>
+        </li>
+        <li>
+          <span class="pub-authors">B Hartig, S Buchan, F Downey, P Bland, R Sayers, R Howie, R McGellin.</span>
+          <span class="pub-title">Binar Space Program: Launching CubeSats and Space Careers for Students of All Ages.</span>
+          <span class="pub-venue">Small Satellite Conference, USA, 2022.</span>
+        </li>
+        <li>
+          <span class="pub-authors">B Hartig, J Paxman, R Howie, M Towner, F Downey, S Buchan.</span>
+          <span class="pub-title">How Low Can You Go? An AI-Powered Solution for Autonomous Spacecraft Control in Very Low Lunar Orbits.</span>
+          <span class="pub-venue">Small Satellite Conference, USA, 2024.</span>
+        </li>
+        <li>
+          <span class="pub-authors">K McMullan, F Downey, J Cook, N Rogers, C Tay, H Benz, T Ward, D Turner, S Buchan, D Busan, B Hartig, M Towner, R Howie, P Bland, J Paxman.</span>
+          <span class="pub-title">Binar Space Program: Mission 2 Update.</span>
+          <span class="pub-venue">Small Satellite Conference, USA, 2024.</span>
+        </li>
+        <li>
+          <span class="pub-authors">SRG Buchan, RM Howie, J Paxman.</span>
+          <span class="pub-title">Developing a Cost-Effective Radiometer for Fireball Light Curves.</span>
+          <span class="pub-venue">International Meteor Conference, Slovakia, 2019.</span>
+        </li>
+      </ol>
+    </section>
+
     <!-- ════ SKILLS ════ -->
     <section>
       <h2 class="section-title">Skills &amp; Technologies</h2>
@@ -368,15 +489,59 @@
         <span class="tag">Python</span>
         <span class="tag">Embedded Linux</span>
         <span class="tag">FPGA</span>
-        <span class="tag">cFS</span>
+        <span class="tag">RISC-V</span>
+        <span class="tag">NASA cFS</span>
+        <span class="tag">QEMU</span>
         <span class="tag">CI/CD</span>
         <span class="tag">Spacecraft Flight Software</span>
         <span class="tag">Hardware Abstraction</span>
         <span class="tag">Digital Twins</span>
+        <span class="tag">Collision Avoidance</span>
         <span class="tag">Mechatronics</span>
         <span class="tag">Fault Detection &amp; Prevention</span>
         <span class="tag">Cross-compilation</span>
+        <span class="tag">Mission Operations</span>
       </div>
+    </section>
+
+    <!-- ════ PROFESSIONAL MEMBERSHIP ════ -->
+    <section>
+      <h2 class="section-title">Professional Membership</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Global Local Events Coordinator — Space Generation Advisory Council (SGAC)</span>
+          <span class="entry-date">2025 — Present</span>
+        </div>
+        <ul>
+          <li>Appointed to a two-year post on the SGAC Events Coordination Team, overseeing the development of local-level events worldwide and acting as the focal point connecting event managers with SGAC's executive teams.</li>
+          <li>Review event bids and proposals, ensure consistent quality standards across SGAC's global portfolio of local and partnered events, and build a knowledge base of templates and lessons learned for future event managers.</li>
+          <li>Sit on the SGAC Executive Committee, reporting to the Executive Director and Co-Chairs on operational activities related to local events.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Delegates Team Volunteer — Space Generation Congress 2025</span>
+          <span class="entry-date">2025</span>
+        </div>
+        <ul>
+          <li>Coordinated approximately 150 international delegates across all stages of the Congress in Sydney — from application review and selection through to registration, travel logistics for scholarship winners, and on-site participation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ════ IN THE MEDIA ════ -->
+    <section>
+      <h2 class="section-title">In the Media</h2>
+      <p style="font-size:0.92rem; color:#555; margin-bottom:16px; line-height:1.6;">
+        The launch of Binar-1 in August 2021 marked Western Australia's first homegrown satellite — a milestone that attracted widespread national media attention.
+      </p>
+      <ul class="media-list">
+        <li><a href="https://www.abc.net.au/news/2021-08-29/first-wa-satellite-binar-1-launched-into-space/100415996" target="_blank" rel="noopener">WA researchers make history with first locally-made satellite launched into space</a> — ABC News</li>
+        <li><a href="https://www.abc.net.au/news/2023-07-21/curtin-university-binar-space-program-test-satellite-york-wa/102631882" target="_blank" rel="noopener">Prototype of satellites to be sent to International Space Station tested by Curtin University researchers</a> — ABC News</li>
+        <li><a href="https://westernindependent.com.au/2021/08/26/one-small-step-one-giant-leap/" target="_blank" rel="noopener">A Giant Leap</a> — Western Independent</li>
+        <li><a href="https://www.curtin.edu.au/friends/space-cubed-the-curtin-graduates-behind-binar-1/" target="_blank" rel="noopener">Space, cubed: The Curtin graduates behind Binar-1</a> — Curtin University</li>
+      </ul>
     </section>
 
     <footer>
