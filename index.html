@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stuart Buchan, PhD — Software Systems Engineer</title>
+  <meta name="description" content="CV of Stuart Buchan, PhD — Software Systems Engineer specialising in spacecraft flight software, embedded systems, and autonomous space missions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --paper: #f6f3ee;
+      --accent: #2c5f7c;
+      --accent-light: #e8f0f5;
+      --muted: #6b6b6b;
+      --rule: #d4cfc7;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    a:hover { border-bottom-color: var(--accent); }
+
+    /* ── Layout ── */
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 32px 100px;
+    }
+
+    /* ── Header ── */
+    header {
+      margin-bottom: 64px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    header h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .contact-row a { color: var(--accent); }
+
+    .contact-row span::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      background: var(--rule);
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-right: 0;
+    }
+
+    .contact-row span:first-child::before { display: none; }
+
+    .summary {
+      margin-top: 28px;
+      font-size: 1.05rem;
+      line-height: 1.72;
+      color: #333;
+      max-width: 680px;
+    }
+
+    /* ── Section ── */
+    section {
+      margin-bottom: 56px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    section:nth-child(2) { animation-delay: 0.08s; }
+    section:nth-child(3) { animation-delay: 0.16s; }
+    section:nth-child(4) { animation-delay: 0.24s; }
+    section:nth-child(5) { animation-delay: 0.32s; }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 32px;
+    }
+
+    /* ── Entry (job / degree) ── */
+    .entry {
+      margin-bottom: 36px;
+      position: relative;
+    }
+
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px 16px;
+      margin-bottom: 4px;
+    }
+
+    .entry-title {
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    .entry-date {
+      font-size: 0.88rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .entry-sub {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .entry ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .entry li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 8px;
+      font-size: 0.94rem;
+      line-height: 1.62;
+      color: #333;
+    }
+
+    .entry li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 1.5px;
+      background: var(--accent);
+    }
+
+    /* ── Thesis block ── */
+    .thesis-title {
+      font-size: 0.94rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .thesis-title em {
+      font-style: italic;
+    }
+
+    /* ── Skills / Tags ── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 100px;
+      background: var(--accent-light);
+      color: var(--accent);
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+      font-size: 0.82rem;
+      color: var(--muted);
+      animation: fadeUp 0.6s ease both;
+      animation-delay: 0.4s;
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Print ── */
+    @media print {
+      body { background: #fff; font-size: 11pt; }
+      .page { padding: 0; max-width: 100%; }
+      section, header, footer { animation: none; }
+      a { color: var(--ink); border: none; }
+      .tag { border: 1px solid #ccc; background: transparent; color: var(--ink); }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .page { padding: 48px 20px 64px; }
+      header { margin-bottom: 48px; }
+      .entry-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header>
+      <h1>Stuart Buchan, PhD</h1>
+      <div class="contact-row">
+        <span><a href="https://linkedin.com/in/stuartrgbuchan" target="_blank" rel="noopener">LinkedIn</a></span>
+      </div>
+      <p class="summary">
+        A dedicated and innovative PhD graduate currently working as a software systems engineer with a strong background in spacecraft software development and a commitment to enhancing the reliability and autonomy of space missions. I have led the development of a spacecraft flight software framework, deployed on four satellites, and designed advanced onboard systems for predictive fault prevention. My strong proficiency in C/C++, deep understanding of mechatronic systems, proven leadership skills, adaptability, and creative problem-solving abilities position me to drive success in challenging projects.
+      </p>
+    </header>
+
+    <!-- ════ EXPERIENCE ════ -->
+    <section>
+      <h2 class="section-title">Experience</h2>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Software Systems Engineer</span>
+          <span class="entry-date">Feb 2024 — Present</span>
+        </div>
+        <div class="entry-sub">Fugro SpAARC · Perth, WA</div>
+        <ul>
+          <li>Contributing to avionics hardware selection for Trailblazer Stage 1 of the Australian Space Agency Moon to Mars Initiative by deploying soft-core emulation of potential flight computers on FPGAs.</li>
+          <li>Developing and maintaining a custom embedded Linux image for deployment on the flight computer, with an additional virtualised setup for hardware-independent testing.</li>
+          <li>Set up and manage a lab testing network for seamless distribution of embedded Linux images to FPGA targets, facilitating efficient deployment processes.</li>
+          <li>Develop, cross-compile, and deploy cFS (core Flight System) applications onto hardware targets, supporting hardware evaluation for the Preliminary Design Review phase.</li>
+          <li>Build and maintain toolchains and development tools, supporting and optimising the embedded systems development workflow.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Lead Embedded Software Engineer</span>
+          <span class="entry-date">Mar 2019 — Feb 2024</span>
+        </div>
+        <div class="entry-sub">Binar Space Program · Perth, WA</div>
+        <ul>
+          <li>Spearheaded the development of spacecraft flight software for Binar-1, contributing to the mission's success.</li>
+          <li>Designed and implemented drivers, board support layers, hardware abstraction layers, and libraries using C/C++, optimising flight software development.</li>
+          <li>Established and maintained a robust CI/CD pipeline, ensuring the release of high-quality code to spacecraft and enhancing mission reliability.</li>
+          <li>Led a dynamic development team responsible for writing spacecraft flight software for Binar-2, 3, and 4, ensuring the achievement of mission objectives on orbit.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Engineering Teaching Staff</span>
+          <span class="entry-date">Mar 2018 — Jun 2020</span>
+        </div>
+        <div class="entry-sub">Curtin University · Perth, WA</div>
+        <ul>
+          <li>Guided second-year engineering students in translating theoretical knowledge into practical applications across Microcontroller Project and Modelling Project units.</li>
+          <li>Organised and facilitated interactive workshops, ensuring students acquired practical skills directly applicable to their coursework.</li>
+          <li>Demonstrated exceptional adaptability during the COVID-19 pandemic by developing an alternative codebase for students to use at home on personal laptops.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Research Engineer</span>
+          <span class="entry-date">Jul 2018 — Feb 2019</span>
+        </div>
+        <div class="entry-sub">Desert Fireball Network · Perth, WA</div>
+        <ul>
+          <li>Played a key role in the assembly and deployment of fireball observation cameras as part of the Global Fireball Observatory.</li>
+          <li>Collaborated with a multidisciplinary team to ensure successful setup and calibration of observation equipment for tracking fireball events.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Software Engineering Intern</span>
+          <span class="entry-date">Dec 2017 — Feb 2018</span>
+        </div>
+        <div class="entry-sub">CSIRO Astronomy and Space Science Division · Perth, WA</div>
+        <ul>
+          <li>Collaborated with a senior software engineer to develop a navigation and visualisation platform for monitoring measurement points of the Australian Square Kilometre Array Pathfinder telescopes.</li>
+          <li>Designed and implemented custom anomaly detection algorithms in Python to autonomously identify errors in radio telescope data.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ════ EDUCATION ════ -->
+    <section>
+      <h2 class="section-title">Education</h2>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Doctor of Philosophy</span>
+          <span class="entry-date">2019 — 2023</span>
+        </div>
+        <div class="entry-sub">Curtin University · Perth, WA</div>
+        <p class="thesis-title"><em>Thesis: Pushing the Boundaries of Spacecraft Autonomy and Resilience with a Custom Software Framework and Onboard Digital Twin</em></p>
+        <ul>
+          <li>Identified software errors as a significant contributor to CubeSat mission failures, accounting for approximately 35% of total mission failures.</li>
+          <li>Utilised a "Learning From Incidents" approach to identify recurring factors leading to software failures in historic space missions.</li>
+          <li>Applied reliable software design principles to satellite software development, demonstrated through a case study on Western Australia's first satellite, Binar-1.</li>
+          <li>Developed an onboard digital twin for the Binar CubeSat platform running on a memory-constrained flight computer, demonstrating fault prediction and autonomous fault prevention.</li>
+          <li>Successfully integrated the software framework onto Binar-2, 3, and 4 along with the novel onboard digital twin for in-orbit testing.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Bachelor of Engineering (Honours) in Mechatronic Engineering</span>
+          <span class="entry-date">2015 — 2018</span>
+        </div>
+        <div class="entry-sub">Curtin University · Perth, WA — CWA: 81.75%</div>
+        <ul>
+          <li>Graduated with First Class Honours.</li>
+          <li>Recognised for academic excellence with five letters of commendation from the Mechanical Engineering Board of Examiners.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ════ SKILLS ════ -->
+    <section>
+      <h2 class="section-title">Skills &amp; Technologies</h2>
+      <div class="tags">
+        <span class="tag">C/C++</span>
+        <span class="tag">Python</span>
+        <span class="tag">Embedded Linux</span>
+        <span class="tag">FPGA</span>
+        <span class="tag">cFS</span>
+        <span class="tag">CI/CD</span>
+        <span class="tag">Spacecraft Flight Software</span>
+        <span class="tag">Hardware Abstraction</span>
+        <span class="tag">Digital Twins</span>
+        <span class="tag">Mechatronics</span>
+        <span class="tag">Fault Detection &amp; Prevention</span>
+        <span class="tag">Cross-compilation</span>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2026 Stuart Buchan
+    </footer>
+
+  </div>
+</body>
+</html>
