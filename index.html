@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stuart Buchan, PhD — Software Systems Engineer</title>
-  <meta name="description" content="Stuart Buchan, PhD — Software Systems Engineer specialising in spacecraft flight software, embedded systems, and autonomous space missions. Co-founder of the Binar Space Program.">
+  <title>Stuart Buchan, PhD</title>
+  <meta name="description" content="Stuart Buchan — Software Systems Engineer">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -13,6 +13,7 @@
       --ink: #1a1a1a;
       --paper: #f6f3ee;
       --accent: #2c5f7c;
+      --accent-hover: #1f4a5f;
       --accent-light: #e8f0f5;
       --muted: #6b6b6b;
       --rule: #d4cfc7;
@@ -31,6 +32,11 @@
       line-height: 1.65;
       font-size: 16px;
       -webkit-font-smoothing: antialiased;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
     }
 
     ::selection {
@@ -41,513 +47,192 @@
     a {
       color: var(--accent);
       text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
-    a:hover { border-bottom-color: var(--accent); }
-
-    /* ── Layout ── */
-    .page {
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 80px 32px 100px;
     }
 
-    /* ── Header ── */
-    header {
-      margin-bottom: 64px;
-      animation: fadeUp 0.6s ease both;
+    /* ── Card ── */
+    .card {
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      animation: fadeUp 0.5s ease both;
     }
 
-    header h1 {
-      font-family: var(--serif);
-      font-size: clamp(2.2rem, 5vw, 3.2rem);
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-
-    .contact-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 24px;
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
-
-    .contact-row a { color: var(--accent); }
-
-    .contact-row span::before {
-      content: '';
-      display: inline-block;
-      width: 4px;
-      height: 4px;
-      background: var(--rule);
+    /* ── Avatar ── */
+    .avatar {
+      width: 96px;
+      height: 96px;
       border-radius: 50%;
-      vertical-align: middle;
-    }
-
-    .contact-row span:first-child::before { display: none; }
-
-    .summary {
-      margin-top: 28px;
-      font-size: 1.05rem;
-      line-height: 1.72;
-      color: #333;
-      max-width: 720px;
-    }
-
-    .summary p { margin-bottom: 12px; }
-    .summary p:last-child { margin-bottom: 0; }
-
-    /* ── Section ── */
-    section {
-      margin-bottom: 56px;
-      animation: fadeUp 0.6s ease both;
-    }
-
-    section:nth-of-type(1) { animation-delay: 0.08s; }
-    section:nth-of-type(2) { animation-delay: 0.16s; }
-    section:nth-of-type(3) { animation-delay: 0.24s; }
-    section:nth-of-type(4) { animation-delay: 0.32s; }
-    section:nth-of-type(5) { animation-delay: 0.36s; }
-    section:nth-of-type(6) { animation-delay: 0.40s; }
-    section:nth-of-type(7) { animation-delay: 0.44s; }
-
-    .section-title {
-      font-family: var(--serif);
-      font-size: 1.35rem;
-      font-weight: 400;
-      letter-spacing: 0.01em;
-      padding-bottom: 12px;
-      border-bottom: 2px solid var(--ink);
-      margin-bottom: 32px;
-    }
-
-    /* ── Entry (job / degree) ── */
-    .entry {
-      margin-bottom: 36px;
+      margin: 0 auto 28px;
+      object-fit: cover;
+      box-shadow: 0 4px 16px rgba(44, 95, 124, 0.25);
       position: relative;
     }
 
-    .entry:last-child { margin-bottom: 0; }
+    h1 {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
 
-    .entry-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 4px 16px;
+    .role {
+      font-size: 0.95rem;
+      color: var(--muted);
       margin-bottom: 4px;
     }
 
-    .entry-title {
-      font-weight: 600;
-      font-size: 1.05rem;
-    }
-
-    .entry-date {
+    .org {
       font-size: 0.88rem;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    .entry-sub {
-      font-size: 0.92rem;
-      color: var(--muted);
-      margin-bottom: 6px;
-      font-style: italic;
-    }
-
-    .entry-context {
-      font-size: 0.9rem;
-      color: #555;
-      line-height: 1.6;
-      margin-bottom: 14px;
-      padding-left: 18px;
-      border-left: 2px solid var(--rule);
-    }
-
-    .entry ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .entry li {
-      position: relative;
-      padding-left: 18px;
-      margin-bottom: 8px;
-      font-size: 0.94rem;
-      line-height: 1.62;
-      color: #333;
-    }
-
-    .entry li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 10px;
-      width: 6px;
-      height: 1.5px;
-      background: var(--accent);
-    }
-
-    .entry li strong {
-      font-weight: 600;
-    }
-
-    /* ── Thesis block ── */
-    .thesis-title {
-      font-size: 0.94rem;
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    .thesis-title em { font-style: italic; }
-
-    /* ── Publications ── */
-    .pub-list {
-      list-style: none;
-      padding: 0;
-      counter-reset: pub;
-    }
-
-    .pub-list li {
-      position: relative;
-      padding-left: 32px;
-      margin-bottom: 14px;
-      font-size: 0.92rem;
-      line-height: 1.6;
-      color: #333;
-      counter-increment: pub;
-    }
-
-    .pub-list li::before {
-      content: counter(pub) '.';
-      position: absolute;
-      left: 0;
-      font-weight: 600;
       color: var(--accent);
-      font-size: 0.85rem;
+      margin-bottom: 24px;
     }
 
-    .pub-list .pub-authors { color: var(--muted); }
-    .pub-list .pub-title { font-weight: 500; }
-    .pub-list .pub-venue { font-style: italic; }
-
-    /* ── Media ── */
-    .media-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .media-list li {
-      margin-bottom: 10px;
+    .bio {
       font-size: 0.92rem;
-      padding-left: 18px;
-      position: relative;
+      line-height: 1.65;
+      color: #444;
+      margin-bottom: 32px;
+      max-width: 380px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .media-list li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-
-    /* ── Skills / Tags ── */
-    .tags {
+    /* ── Buttons ── */
+    .actions {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 4px;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
     }
 
-    .tag {
-      display: inline-block;
-      font-size: 0.82rem;
-      font-weight: 500;
-      padding: 5px 14px;
-      border-radius: 100px;
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 10px;
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s, transform 0.1s;
+      text-decoration: none;
+    }
+
+    .btn:active { transform: scale(0.98); }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--accent-hover); }
+
+    .btn-secondary {
       background: var(--accent-light);
       color: var(--accent);
-      letter-spacing: 0.01em;
+    }
+    .btn-secondary:hover { background: #d9e8f0; }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
     }
 
-    /* ── Footer ── */
-    footer {
-      margin-top: 72px;
-      padding-top: 24px;
-      border-top: 1px solid var(--rule);
-      font-size: 0.82rem;
-      color: var(--muted);
-      animation: fadeUp 0.6s ease both;
-      animation-delay: 0.5s;
+    /* ── Toast ── */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--ink);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
 
     /* ── Animations ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
+      from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── Print ── */
-    @media print {
-      body { background: #fff; font-size: 11pt; }
-      .page { padding: 0; max-width: 100%; }
-      section, header, footer { animation: none; }
-      a { color: var(--ink); border: none; }
-      .tag { border: 1px solid #ccc; background: transparent; color: var(--ink); }
-      .entry-context { border-left-color: #999; }
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 600px) {
-      .page { padding: 48px 20px 64px; }
-      header { margin-bottom: 48px; }
-      .entry-header { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
 
-    <header>
-      <h1>Stuart Buchan, PhD</h1>
-      <div class="contact-row">
-        <span><a href="https://au.linkedin.com/in/stuartrgbuchan" target="_blank" rel="noopener">LinkedIn</a></span>
-      </div>
-      <div class="summary">
-        <p>
-          Co-founder of Curtin University's Binar Space Program and a recognised ambassador for Australia's fast-growing space sector. I led the flight software design, development, and testing for Western Australia's first spacecraft, and my PhD research applied cutting-edge AI to boost spacecraft autonomy and resilience — work I'm extending today at Fugro SpAARC, where I provide southern-hemisphere mission support to U.S. lunar flights and co-develop next-generation on-orbit compute architectures with international partners.
-        </p>
-        <p>
-          I'm personally driven to deepen U.S.–Australian cooperation, ensuring allied access to resilient space infrastructure while democratising opportunities for new entrants. I mentor emerging engineers, champion open collaboration, and consistently turn visionary ideas into tangible, flight-proven hardware.
-        </p>
-      </div>
-    </header>
+  <div class="card">
+    <img class="avatar" src="headshot.jpg" alt="Stuart Buchan">
 
-    <!-- ════ EXPERIENCE ════ -->
-    <section>
-      <h2 class="section-title">Experience</h2>
+    <h1>Stuart Buchan, PhD</h1>
+    <p class="role">Software Systems Engineer</p>
+    <p class="org">Fugro SpAARC</p>
 
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Software Systems Engineer</span>
-          <span class="entry-date">Feb 2024 — Present</span>
-        </div>
-        <div class="entry-sub">Fugro SpAARC · Perth, WA</div>
-        <p class="entry-context">Australia's NASA-aligned Remote Operations Complex, providing the United States with continuous southern-hemisphere mission control, flight-software R&D, and space-traffic-management services in support of NASA, Intuitive Machines, and the Australian Space Agency.</p>
-        <ul>
-          <li><strong>Made lunar-flight history:</strong> On console as the SpAARC mission operations team transmitted Australia's first in-flight command to Intuitive Machines' Nova-C (IM-2) lander during cislunar transit, paving the way for 24-hour U.S.–Australia mission coverage during the historic second-ever commercial lunar landing.</li>
-          <li><strong>Shielding U.S. assets:</strong> Co-designed a cloud-based collision-avoidance service with NASA that fuses Starling &amp; Starlink ephemeris, auto-flagging conjunctions &lt;&nbsp;10&nbsp;m and establishing an operational template for bilateral space-traffic management aligned with NASA's Commercial LEO Destinations program.</li>
-          <li><strong>Democratising space flight software:</strong> Led development of a web-based core Flight System (cFS) table-builder that eliminates manual hex editing and cuts configuration time 5×. Now in testing with former NASA flight software leads, it enables non-programmers to safely build and deploy spacecraft configurations.</li>
-          <li><strong>Opening cutting-edge hardware paths:</strong> Ported NASA's cFS to RISC-V SoCs, unlocking low-cost, export-compliant processors for allied missions.</li>
-          <li><strong>De-risked Australia's flagship lunar rover mission:</strong> Emulated candidate flight computers on FPGAs months ahead of delivery to validate compatibility with NASA payloads. Developed a CI-ready embedded Linux image with virtualisation (QEMU), enabling on-schedule Preliminary Design Review and supporting remote development.</li>
-        </ul>
-      </div>
+    <p class="bio">
+      Co-founded the program that launched Western Australia's first satellite. Now engineering next-generation spacecraft avionics at Fugro SpAARC.
+    </p>
 
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Lead Embedded Software Engineer</span>
-          <span class="entry-date">Mar 2019 — Feb 2024</span>
-        </div>
-        <div class="entry-sub">Binar Space Program, Curtin University · Perth, WA</div>
-        <p class="entry-context">An initiative of Curtin University's Space Science and Technology Centre developing compact, cost-effective CubeSats to advance Australia's space capabilities through missions in Low Earth Orbit.</p>
-        <ul>
-          <li><strong>Made Western Australian space history:</strong> Led end-to-end flight software development for Western Australia's first satellite, Binar-1 — meeting mission objectives, verifying software capability on orbit, and establishing a reliable platform for future payload integrations with national partners.</li>
-          <li><strong>Grew Australia's spaceflight talent pipeline:</strong> Mentored and led a team of engineers and university students responsible for developing spaceflight software for the Binar-2, 3, and 4 CubeSats, consistently achieving mission objectives and expanding Australia's sovereign space capability.</li>
-          <li><strong>Engineered flight-ready reliability from scratch:</strong> Architected a comprehensive software stack — drivers, board support layers, and hardware abstraction layers in C/C++ — streamlining flight software development and enhancing system performance.</li>
-          <li><strong>Ported proven practices to the space industry:</strong> Established a robust CI/CD pipeline incorporating automated testing and rigorous code reviews, ensuring the delivery of high-quality, mission-critical software to orbit.</li>
-          <li><strong>Shared Australia's CubeSat leap with the world:</strong> Delivered the talk <em>"Binar Space Program: Mission Two Payloads and Operations Plan"</em> at the 2023 AIAA/USU Small Satellite Conference in the U.S., with the accompanying paper downloaded more than 160 times worldwide.</li>
-        </ul>
-      </div>
+    <div class="actions">
+      <button class="btn btn-primary" onclick="saveContact()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        Save Contact
+      </button>
 
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Engineering Teaching Staff</span>
-          <span class="entry-date">Mar 2018 — Jun 2020</span>
-        </div>
-        <div class="entry-sub">Curtin University · Perth, WA</div>
-        <p class="entry-context">Laboratory supervisor for Mechatronics Microcontroller Project (semi-autonomous robot design) and Mechatronics Modelling Project (model-based design for autonomous systems).</p>
-        <ul>
-          <li><strong>Bridged theory and practice:</strong> Mentored second-year engineering students in applying theoretical concepts to real-world challenges, fostering deeper understanding and cultivating problem-solving skills.</li>
-          <li><strong>Turned coursework into capability:</strong> Designed and facilitated hands-on workshops equipping students with practical skills directly applicable to their careers.</li>
-          <li><strong>Kept learning alive in lockdown:</strong> Rapidly developed an alternative codebase during COVID-19 that enabled students to continue studies remotely on personal laptops when standard lab software was inaccessible.</li>
-        </ul>
-      </div>
+      <a class="btn btn-secondary" href="/cv">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        View Full CV
+      </a>
 
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Research Engineer</span>
-          <span class="entry-date">Jul 2018 — Feb 2019</span>
-        </div>
-        <div class="entry-sub">Desert Fireball Network, Curtin University · Perth, WA</div>
-        <p class="entry-context">Part of the Global Fireball Observatory — a collaborative effort with NASA, University of Arizona, Lunar and Planetary Institute, and Lowell Observatory to study meteorite falls worldwide.</p>
-        <ul>
-          <li><strong>Expanded a global meteor network:</strong> Constructed, deployed, and maintained automated fireball observation cameras supporting the GFO's planetary science data collection efforts.</li>
-          <li><strong>Delivered the hardware behind the science:</strong> Coordinated precision setup, calibration, and operation of complex observation equipment, resulting in a significant increase in observation time and improved datasets worldwide.</li>
-        </ul>
-      </div>
-
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Software Engineering Intern</span>
-          <span class="entry-date">Dec 2017 — Feb 2018</span>
-        </div>
-        <div class="entry-sub">CSIRO Astronomy and Space Science · Perth, WA</div>
-        <p class="entry-context">CSIRO's division responsible for developing and operating world-class radio astronomy facilities, including contributions to the international Square Kilometre Array project.</p>
-        <ul>
-          <li>Co-developed a navigation and visualisation platform for monitoring measurement points of the Australian Square Kilometre Array Pathfinder telescopes — supporting operational needs and active development through at least 2021.</li>
-          <li>Designed and implemented custom anomaly detection algorithms in Python, enhancing the efficiency and accuracy of radio telescope data analysis.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ════ EDUCATION ════ -->
-    <section>
-      <h2 class="section-title">Education</h2>
-
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Doctor of Philosophy</span>
-          <span class="entry-date">2019 — 2023</span>
-        </div>
-        <div class="entry-sub">Curtin University · Perth, WA</div>
-        <p class="thesis-title"><em>Thesis: Pushing the Boundaries of Spacecraft Autonomy and Resilience with a Custom Software Framework and Onboard Digital Twin</em></p>
-        <ul>
-          <li>Identified software errors as a significant contributor to CubeSat mission failures, accounting for approximately 35% of total mission failures.</li>
-          <li>Utilised a "Learning From Incidents" approach to identify recurring factors leading to software failures in historic space missions.</li>
-          <li>Applied reliable software design principles to satellite software development, demonstrated through a case study on Western Australia's first satellite, Binar-1.</li>
-          <li>Developed an onboard digital twin for the Binar CubeSat platform running on a memory-constrained flight computer, demonstrating fault prediction and autonomous fault prevention.</li>
-          <li>Successfully integrated the software framework onto Binar-2, 3, and 4 along with the novel onboard digital twin for in-orbit testing.</li>
-          <li>Findings support NASA Standard 8719.14 debris-mitigation criteria and the FCC's 2022 "5-year rule" for LEO satellite disposal by improving CubeSat on-orbit success rates.</li>
-        </ul>
-      </div>
-
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Bachelor of Engineering (Honours) in Mechatronic Engineering</span>
-          <span class="entry-date">2015 — 2018</span>
-        </div>
-        <div class="entry-sub">Curtin University · Perth, WA — CWA: 81.75%</div>
-        <ul>
-          <li>Graduated with First Class Honours.</li>
-          <li>Recognised for academic excellence with five letters of commendation from the Mechanical Engineering Board of Examiners.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ════ PUBLICATIONS ════ -->
-    <section>
-      <h2 class="section-title">Publications</h2>
-      <ol class="pub-list">
-        <li>
-          <span class="pub-authors">SRG Buchan.</span>
-          <span class="pub-title">Pushing the Boundaries of Spacecraft Autonomy and Resilience with a Custom Software Framework and Onboard Digital Twin.</span>
-          <span class="pub-venue">Curtin University, Australia, 2023.</span>
-        </li>
-        <li>
-          <span class="pub-authors">S Buchan, F Downey, B Hartig, D Busan, J Cook, R Howie, P Bland, J Paxman.</span>
-          <span class="pub-title">Binar Space Program: Mission Two Payloads and Operations Plan.</span>
-          <span class="pub-venue">Small Satellite Conference, USA, 2022.</span>
-        </li>
-        <li>
-          <span class="pub-authors">F Downey, S Buchan, B Hartig, D Busan, J Cook, R Howie, P Bland, J Paxman.</span>
-          <span class="pub-title">Binar Space Program: Binar-1 Results and Lessons Learned.</span>
-          <span class="pub-venue">Small Satellite Conference, USA, 2022.</span>
-        </li>
-        <li>
-          <span class="pub-authors">B Hartig, S Buchan, F Downey, P Bland, R Sayers, R Howie, R McGellin.</span>
-          <span class="pub-title">Binar Space Program: Launching CubeSats and Space Careers for Students of All Ages.</span>
-          <span class="pub-venue">Small Satellite Conference, USA, 2022.</span>
-        </li>
-        <li>
-          <span class="pub-authors">B Hartig, J Paxman, R Howie, M Towner, F Downey, S Buchan.</span>
-          <span class="pub-title">How Low Can You Go? An AI-Powered Solution for Autonomous Spacecraft Control in Very Low Lunar Orbits.</span>
-          <span class="pub-venue">Small Satellite Conference, USA, 2024.</span>
-        </li>
-        <li>
-          <span class="pub-authors">K McMullan, F Downey, J Cook, N Rogers, C Tay, H Benz, T Ward, D Turner, S Buchan, D Busan, B Hartig, M Towner, R Howie, P Bland, J Paxman.</span>
-          <span class="pub-title">Binar Space Program: Mission 2 Update.</span>
-          <span class="pub-venue">Small Satellite Conference, USA, 2024.</span>
-        </li>
-        <li>
-          <span class="pub-authors">SRG Buchan, RM Howie, J Paxman.</span>
-          <span class="pub-title">Developing a Cost-Effective Radiometer for Fireball Light Curves.</span>
-          <span class="pub-venue">International Meteor Conference, Slovakia, 2019.</span>
-        </li>
-      </ol>
-    </section>
-
-    <!-- ════ SKILLS ════ -->
-    <section>
-      <h2 class="section-title">Skills &amp; Technologies</h2>
-      <div class="tags">
-        <span class="tag">C/C++</span>
-        <span class="tag">Python</span>
-        <span class="tag">Embedded Linux</span>
-        <span class="tag">FPGA</span>
-        <span class="tag">RISC-V</span>
-        <span class="tag">NASA cFS</span>
-        <span class="tag">QEMU</span>
-        <span class="tag">CI/CD</span>
-        <span class="tag">Spacecraft Flight Software</span>
-        <span class="tag">Hardware Abstraction</span>
-        <span class="tag">Digital Twins</span>
-        <span class="tag">Collision Avoidance</span>
-        <span class="tag">Mechatronics</span>
-        <span class="tag">Fault Detection &amp; Prevention</span>
-        <span class="tag">Cross-compilation</span>
-        <span class="tag">Mission Operations</span>
-      </div>
-    </section>
-
-    <!-- ════ PROFESSIONAL MEMBERSHIP ════ -->
-    <section>
-      <h2 class="section-title">Professional Membership</h2>
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Global Local Events Coordinator — Space Generation Advisory Council (SGAC)</span>
-          <span class="entry-date">2025 — Present</span>
-        </div>
-        <ul>
-          <li>Appointed to a two-year post on the SGAC Events Coordination Team, overseeing the development of local-level events worldwide and acting as the focal point connecting event managers with SGAC's executive teams.</li>
-          <li>Review event bids and proposals, ensure consistent quality standards across SGAC's global portfolio of local and partnered events, and build a knowledge base of templates and lessons learned for future event managers.</li>
-          <li>Sit on the SGAC Executive Committee, reporting to the Executive Director and Co-Chairs on operational activities related to local events.</li>
-        </ul>
-      </div>
-
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Delegates Team Volunteer — Space Generation Congress 2025</span>
-          <span class="entry-date">2025</span>
-        </div>
-        <ul>
-          <li>Coordinated approximately 150 international delegates across all stages of the Congress in Sydney — from application review and selection through to registration, travel logistics for scholarship winners, and on-site participation.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ════ IN THE MEDIA ════ -->
-    <section>
-      <h2 class="section-title">In the Media</h2>
-      <p style="font-size:0.92rem; color:#555; margin-bottom:16px; line-height:1.6;">
-        The launch of Binar-1 in August 2021 marked Western Australia's first homegrown satellite — a milestone that attracted widespread national media attention.
-      </p>
-      <ul class="media-list">
-        <li><a href="https://www.abc.net.au/news/2021-08-29/first-wa-satellite-binar-1-launched-into-space/100415996" target="_blank" rel="noopener">WA researchers make history with first locally-made satellite launched into space</a> — ABC News</li>
-        <li><a href="https://www.abc.net.au/news/2023-07-21/curtin-university-binar-space-program-test-satellite-york-wa/102631882" target="_blank" rel="noopener">Prototype of satellites to be sent to International Space Station tested by Curtin University researchers</a> — ABC News</li>
-        <li><a href="https://westernindependent.com.au/2021/08/26/one-small-step-one-giant-leap/" target="_blank" rel="noopener">A Giant Leap</a> — Western Independent</li>
-        <li><a href="https://www.curtin.edu.au/friends/space-cubed-the-curtin-graduates-behind-binar-1/" target="_blank" rel="noopener">Space, cubed: The Curtin graduates behind Binar-1</a> — Curtin University</li>
-      </ul>
-    </section>
-
-    <footer>
-      &copy; 2026 Stuart Buchan
-    </footer>
+      <a class="btn btn-secondary" href="https://au.linkedin.com/in/stuartrgbuchan" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
 
   </div>
-</body>
-</html>
+
+  <div class="toast" id="toast">Downloading contact...</div>
+
+  <script>
+    function saveContact() {
+      const u = 'stuart';
+      const d = 'buchan.phd';
+      const vcard = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'N:Buchan;Stuart;;;PhD',
+        'FN:Stuart Buchan, PhD',
+        'ORG:Fugro SpAARC',
+        'TITLE:Software Systems Engineer',
+        'EMAIL:' + u + '@' + d,
+        'URL:https://au.linkedin.com/in/stuartrgbuchan',
+        'NOTE:Co-founder of the Binar Space Program. Spacecraft flight software engineer.',
+        'END:VCARD'
+      ].join('\n');
+
+      const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'Stuart_Buchan.vcf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+
+      // Show toast
+      const toast = document.ge
