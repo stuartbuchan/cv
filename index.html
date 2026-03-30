@@ -1,238 +1,323 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stuart Buchan, PhD</title>
-  <meta name="description" content="Stuart Buchan — Software Systems Engineer">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --ink: #1a1a1a;
-      --paper: #f6f3ee;
-      --accent: #2c5f7c;
-      --accent-hover: #1f4a5f;
-      --accent-light: #e8f0f5;
-      --muted: #6b6b6b;
-      --rule: #d4cfc7;
-      --serif: 'DM Serif Display', Georgia, serif;
-      --sans: 'DM Sans', system-ui, sans-serif;
-    }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Stuart Buchan, PhD</title>
+        <meta
+            name="description"
+            content="Stuart Buchan — Software Systems Engineer"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --ink: #1a1a1a;
+                --paper: #f6f3ee;
+                --accent: #2c5f7c;
+                --accent-hover: #1f4a5f;
+                --accent-light: #e8f0f5;
+                --muted: #6b6b6b;
+                --rule: #d4cfc7;
+                --serif: "DM Serif Display", Georgia, serif;
+                --sans: "DM Sans", system-ui, sans-serif;
+            }
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+            *,
+            *::before,
+            *::after {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-    html { scroll-behavior: smooth; }
+            html {
+                scroll-behavior: smooth;
+            }
 
-    body {
-      font-family: var(--sans);
-      color: var(--ink);
-      background: var(--paper);
-      line-height: 1.65;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100dvh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px 20px;
-    }
+            body {
+                font-family: var(--sans);
+                color: var(--ink);
+                background: var(--paper);
+                line-height: 1.65;
+                font-size: 16px;
+                -webkit-font-smoothing: antialiased;
+                min-height: 100dvh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 32px 20px;
+            }
 
-    ::selection {
-      background: var(--accent);
-      color: #fff;
-    }
+            ::selection {
+                background: var(--accent);
+                color: #fff;
+            }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+            a {
+                color: var(--accent);
+                text-decoration: none;
+            }
 
-    /* ── Card ── */
-    .card {
-      width: 100%;
-      max-width: 420px;
-      text-align: center;
-      animation: fadeUp 0.5s ease both;
-    }
+            /* ── Card ── */
+            .card {
+                width: 100%;
+                max-width: 420px;
+                text-align: center;
+                animation: fadeUp 0.5s ease both;
+            }
 
-    /* ── Avatar ── */
-    .avatar {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      margin: 0 auto 28px;
-      object-fit: cover;
-      box-shadow: 0 4px 16px rgba(44, 95, 124, 0.25);
-      position: relative;
-    }
+            /* ── Avatar ── */
+            .avatar {
+                width: 96px;
+                height: 96px;
+                border-radius: 50%;
+                margin: 0 auto 28px;
+                object-fit: cover;
+                box-shadow: 0 4px 16px rgba(44, 95, 124, 0.25);
+                position: relative;
+            }
 
-    h1 {
-      font-family: var(--serif);
-      font-size: 1.8rem;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 6px;
-    }
+            h1 {
+                font-family: var(--serif);
+                font-size: 1.8rem;
+                font-weight: 400;
+                letter-spacing: -0.02em;
+                line-height: 1.2;
+                margin-bottom: 6px;
+            }
 
-    .role {
-      font-size: 0.95rem;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
+            .role {
+                font-size: 0.95rem;
+                color: var(--muted);
+                margin-bottom: 4px;
+            }
 
-    .org {
-      font-size: 0.88rem;
-      color: var(--accent);
-      margin-bottom: 24px;
-    }
+            .org {
+                font-size: 0.88rem;
+                color: var(--accent);
+                margin-bottom: 24px;
+            }
 
-    .bio {
-      font-size: 0.92rem;
-      line-height: 1.65;
-      color: #444;
-      margin-bottom: 32px;
-      max-width: 380px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+            .bio {
+                font-size: 0.92rem;
+                line-height: 1.65;
+                color: #444;
+                margin-bottom: 32px;
+                max-width: 380px;
+                margin-left: auto;
+                margin-right: auto;
+            }
 
-    /* ── Buttons ── */
-    .actions {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 28px;
-    }
+            /* ── Buttons ── */
+            .actions {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-bottom: 28px;
+            }
 
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      padding: 14px 20px;
-      border-radius: 10px;
-      font-family: var(--sans);
-      font-size: 0.92rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      transition: background 0.2s, transform 0.1s;
-      text-decoration: none;
-    }
+            .btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                width: 100%;
+                padding: 14px 20px;
+                border-radius: 10px;
+                font-family: var(--sans);
+                font-size: 0.92rem;
+                font-weight: 600;
+                cursor: pointer;
+                border: none;
+                transition:
+                    background 0.2s,
+                    transform 0.1s;
+                text-decoration: none;
+            }
 
-    .btn:active { transform: scale(0.98); }
+            .btn:active {
+                transform: scale(0.98);
+            }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-    .btn-primary:hover { background: var(--accent-hover); }
+            .btn-primary {
+                background: var(--accent);
+                color: #fff;
+            }
+            .btn-primary:hover {
+                background: var(--accent-hover);
+            }
 
-    .btn-secondary {
-      background: var(--accent-light);
-      color: var(--accent);
-    }
-    .btn-secondary:hover { background: #d9e8f0; }
+            .btn-secondary {
+                background: var(--accent-light);
+                color: var(--accent);
+            }
+            .btn-secondary:hover {
+                background: #d9e8f0;
+            }
 
-    .btn svg {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-    }
+            .btn svg {
+                width: 18px;
+                height: 18px;
+                flex-shrink: 0;
+            }
 
-    /* ── Toast ── */
-    .toast {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%) translateY(20px);
-      background: var(--ink);
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s, transform 0.3s;
-    }
+            /* ── Toast ── */
+            .toast {
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%) translateY(20px);
+                background: var(--ink);
+                color: #fff;
+                padding: 10px 20px;
+                border-radius: 8px;
+                font-size: 0.85rem;
+                font-weight: 500;
+                opacity: 0;
+                pointer-events: none;
+                transition:
+                    opacity 0.3s,
+                    transform 0.3s;
+            }
 
-    .toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
+            .toast.show {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
 
-    /* ── Animations ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-  </style>
-</head>
-<body>
+            /* ── Animations ── */
+            @keyframes fadeUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(16px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <img class="avatar" src="headshot.jpg" alt="Stuart Buchan" />
 
-  <div class="card">
-    <img class="avatar" src="headshot.jpg" alt="Stuart Buchan">
+            <h1>Stuart Buchan, PhD</h1>
+            <p class="role">Software Systems Engineer</p>
+            <p class="org">Fugro SpAARC</p>
 
-    <h1>Stuart Buchan, PhD</h1>
-    <p class="role">Software Systems Engineer</p>
-    <p class="org">Fugro SpAARC</p>
+            <p class="bio">
+                Co-founded the program that launched Western Australia's first
+                satellite. Now engineering next-generation spacecraft avionics
+                at Fugro SpAARC.
+            </p>
 
-    <p class="bio">
-      Co-founded the program that launched Western Australia's first satellite. Now engineering next-generation spacecraft avionics at Fugro SpAARC.
-    </p>
+            <div class="actions">
+                <button class="btn btn-primary" onclick="saveContact()">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path
+                            d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
+                        />
+                        <polyline points="17 21 17 13 7 13 7 21" />
+                        <polyline points="7 3 7 8 15 8" />
+                    </svg>
+                    Save Contact
+                </button>
 
-    <div class="actions">
-      <button class="btn btn-primary" onclick="saveContact()">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
-        Save Contact
-      </button>
+                <a class="btn btn-secondary" href="/cv">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path
+                            d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                        />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                        <polyline points="10 9 9 9 8 9" />
+                    </svg>
+                    View Full CV
+                </a>
 
-      <a class="btn btn-secondary" href="/cv">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        View Full CV
-      </a>
+                <a
+                    class="btn btn-secondary"
+                    href="https://au.linkedin.com/in/stuartrgbuchan"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path
+                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                        />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
 
-      <a class="btn btn-secondary" href="https://au.linkedin.com/in/stuartrgbuchan" target="_blank" rel="noopener">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        LinkedIn
-      </a>
-    </div>
+        <div class="toast" id="toast">Downloading contact...</div>
 
-  </div>
+        <script>
+            function saveContact() {
+                var u = "stuart";
+                var d = "buchan.phd";
+                var vcard = [
+                    "BEGIN:VCARD",
+                    "VERSION:3.0",
+                    "N:Buchan;Stuart;;;PhD",
+                    "FN:Stuart Buchan, PhD",
+                    "ORG:Fugro SpAARC",
+                    "TITLE:Software Systems Engineer",
+                    "EMAIL:" + u + "@" + d,
+                    "URL:https://au.linkedin.com/in/stuartrgbuchan",
+                    "NOTE:Spacecraft flight software engineer.",
+                    "END:VCARD",
+                ].join("\n");
 
-  <div class="toast" id="toast">Downloading contact...</div>
+                var link = document.createElement("a");
+                link.href =
+                    "data:text/vcard;charset=utf-8," +
+                    encodeURIComponent(vcard);
+                link.download = "Stuart_Buchan.vcf";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
 
-  <script>
-    function saveContact() {
-      const u = 'stuart';
-      const d = 'buchan.phd';
-      const vcard = [
-        'BEGIN:VCARD',
-        'VERSION:3.0',
-        'N:Buchan;Stuart;;;PhD',
-        'FN:Stuart Buchan, PhD',
-        'ORG:Fugro SpAARC',
-        'TITLE:Software Systems Engineer',
-        'EMAIL:' + u + '@' + d,
-        'URL:https://au.linkedin.com/in/stuartrgbuchan',
-        'NOTE:Co-founder of the Binar Space Program. Spacecraft flight software engineer.',
-        'END:VCARD'
-      ].join('\n');
-
-      const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'Stuart_Buchan.vcf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
-
-      // Show toast
-      const toast = document.ge
+                var toast = document.getElementById("toast");
+                toast.classList.add("show");
+                setTimeout(function () {
+                    toast.classList.remove("show");
+                }, 2500);
+            }
+        </script>
+    </body>
+</html>
